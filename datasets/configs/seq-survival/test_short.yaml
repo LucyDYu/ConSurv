@@ -1,0 +1,31 @@
+# https://aimagelab.github.io/mammoth/datasets/index.html#dataset-configurations
+
+task_type: 'survival'
+
+N_TASKS: 2
+N_CLASSES_PER_TASK: 4
+N_CLASSES: 8 # 4 cancer types * 4 classes per cancer type, not sure if this is correct
+task_name_order: ['tcga_blca', 'tcga_ucec']
+
+enable_other_metrics: 1
+
+csv_path_folder: 'dataset_csv_padding/'
+csv_path_suffix: '_all_clean_padded.csv'
+data_root_dir: '/path/to/your/pt_data'
+split_dir: 'tcga_blca' # a flag for the first task
+which_splits: '5foldcv'
+apply_sig: True
+
+mode: 'coattn'
+weighted_sample: True
+batch_size: 1
+seed: 0
+bs_micro: 4096
+# gradient accumulation steps
+gc: 32
+
+# for backbone mome
+n_bottlenecks: 2
+model_size_wsi: 'small'
+model_size_omic: 'small'
+dropout: 0.25
