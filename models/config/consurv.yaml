@@ -1,0 +1,18 @@
+default:
+  model: consurv
+  # ms_moe architecture config
+  moe_MoME_classifier: True
+  moe_MoME_patho2: True
+  moe_MoME_genom2: True
+  num_experts: 8  # Default number of experts
+  top_k_experts: 3  # Default number of selected experts
+  num_shared_experts: 1  # Default number of shared experts
+  num_tasks: 4  # Default number of tasks
+
+  # fcr config
+  alpha: 0.0024
+  alpha_wsi: 0.0024
+  alpha_omic: 0.0024
+
+  beta: 0.5
+  minibatch_size: 1 

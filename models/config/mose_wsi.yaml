@@ -1,0 +1,39 @@
+default:
+  model: mose_wsi
+
+  # ============================================================================
+  # MOSE Core Parameters (from original MOSE CVPR 2024)
+  # ============================================================================
+  ins_t: 0.07              # Instance-wise contrastive loss temperature
+                           # Source: Paper L552 "τ is Lscl is set to 0.07 as SCR"
+                           # Source: MOSE/main.py:37 parser.add_argument('--ins_t', default=0.07)
+
+  expert: 2                # Student expert for RSD (0=path, 1=omic, 2=fusion)
+                           # Source: MOSE/main.py:38 parser.add_argument('--expert', default='3')
+                           # WSI adaptation: 3-level expert system (0/1/2) corresponds to original 4-level expert='3' (deepest)
+
+  moe_mode: single         # MOSE inference mode: 'single' (MOSE) or 'ensemble' (MOE-MOSE)
+                           # Source: Paper L607-609 "MOSE without using RSD, denoted as MOE-MOSE"
+                           # WSI addition: Original distinguishes via test method, WSI uses config for training differences
+                           # single: MLS+RSD training, fusion inference | ensemble: MLS training, expert average inference
+
+  # ============================================================================
+  # Multi-Level Supervision & Reverse Self-Distillation Weights
+  # ============================================================================
+  mls_weight: 1.0          # Multi-level supervision loss weight
+                           # Source: MOSE/agent/mose.py:158 loss += ins_loss + ce_loss (implicit 1.0)
+
+  rsd_weight: 1          # Reverse self-distillation loss weight
+
+  # ============================================================================
+  # Buffer Management (WSI task-specific)
+  # ============================================================================
+  minibatch_size: 1        # WSI replay batch size
+                           # Source: WSI adaptation, original buffer_batch_size=64 (MOSE/main.py:32)
+                           # Rationale: WSI bag data is large, GPU memory constraint
+
+  # Note: The following parameters are specified via command line or global config
+  # buffer_size: 32         # Experience replay buffer size
+  # n_epochs: 20            # Training epochs
+  # gc: 4                   # Gradient accumulation steps
+  # warm_up_epochs: 0       # Warmup epochs

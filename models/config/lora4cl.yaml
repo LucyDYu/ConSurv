@@ -1,0 +1,10 @@
+seq-survival:
+  model: lora4cl
+  # lora4cl architecture config
+  lora_multi_layer1: False
+  lora_MoME_patho2: True
+  lora_MoME_genom2: True
+
+  num_tasks: 4  # Default number of tasks
+  lora_rank: 8 # lora rank  
+  lora_alpha: 8

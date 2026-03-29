@@ -1,0 +1,10 @@
+default:
+  model: imex_reg
+
+  beta: 0.5
+  minibatch_size: 1 
+  reg_weight: 0.3
+  ema_update_freq: 0.4
+  ema_alpha: 0.999
+  ecr_weight: 0.1
+  crl_weight: 0.1

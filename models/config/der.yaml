@@ -1,0 +1,11 @@
+seq-cifar100:
+  dataset_config: xder
+  500:
+    alpha: 0.3
+    lr: 0.03
+    model: der
+
+default:
+  alpha: 0.3
+  model: der
+  minibatch_size: 1

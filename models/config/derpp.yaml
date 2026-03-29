@@ -1,0 +1,22 @@
+seq-cifar100:
+  dataset_config: xder
+  500:
+    alpha: 0.3
+    beta: 0.5
+    lr: 0.03
+    model: derpp
+
+default:
+  alpha: 0.3
+  beta: 0.5
+  model: derpp
+  minibatch_size: 1
+
+# seq-survival:
+#   # dataset_config: xder
+#   50:
+#     alpha: 0.3
+#     beta: 0.5
+#     # lr: 0.03
+#     model: derpp
+#     minibatch_size: 1
