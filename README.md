@@ -80,7 +80,7 @@ For more experiment configurations, see [run_experiments.md](run_experiments.md)
 
 ## Data Preprocessing
 
-For WSI feature extraction, please refer to [MoME](https://github.com/BearCleverProud/MoME). The training splits and genomic data are from [MCAT](https://github.com/mahmoodlab/MCAT). To save space, please download the following folders from MCAT and place them in this repository's root directory:
+For WSI feature extraction, please refer to [MoME](https://github.com/BearCleverProud/MoME). The training splits and genomic data are from [MCAT](https://github.com/mahmoodlab/MCAT). To save space in this repository, please download the following folders from MCAT and place them in the repository's root directory:
 
 - `dataset_csv/`, `datasets_csv_sig/` — Genomic CSV data
 - `splits/` — 5-fold cross-validation split files
