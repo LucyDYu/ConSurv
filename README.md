@@ -93,6 +93,16 @@ Place the processed WSI features under your data directory, then update the `dat
 data_root_dir: '/path/to/your/pt_data'
 ```
 
+## FAQ
+
+**Q: How much disk space do the extracted WSI features take?**
+
+A: The ResNet-50 features (`.pt` files) for all four datasets (BLCA, UCEC, LUAD, BRCA) take about 50 GB in total. Please reserve enough space for the extracted features.
+
+**Q: How long does training take?**
+
+A: On a single NVIDIA A100 80GB GPU, one run over the full task sequence (BLCA → UCEC → LUAD → BRCA) takes roughly 6 to 8 hours for replay-based methods. This is for a single fold. The 5-fold cross-validation requires five such runs, which can be run in parallel if multiple GPUs are available.
+
 ## Acknowledgement
 
 This repository is built upon [MoME](https://github.com/BearCleverProud/MoME), [Mammoth](https://github.com/aimagelab/mammoth), and [ConSlide](https://github.com/HKU-MedAI/ConSlide). Thanks again for their great works!
